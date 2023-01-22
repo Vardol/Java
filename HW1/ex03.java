@@ -2,7 +2,6 @@
 
 package HW1;
 import java.util.Scanner;
-import HW1.utils;
 import java.lang.Math;
 
 
