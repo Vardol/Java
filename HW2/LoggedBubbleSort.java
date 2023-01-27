@@ -21,7 +21,7 @@ public class LoggedBubbleSort {
         // создаем объекты логгера
 
         Logger logger = Logger.getLogger(LoggedBubbleSort.class.getName());
-        FileHandler fileHandler = new FileHandler("log.log");
+        FileHandler fileHandler = new FileHandler("sortlog.log");
         logger.addHandler(fileHandler);
         SimpleFormatter simpleFormatter = new SimpleFormatter();
         fileHandler.setFormatter(simpleFormatter);

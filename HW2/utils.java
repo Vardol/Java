@@ -22,6 +22,8 @@ public class utils {
         if (scanner.hasNextInt()){input = scanner.nextInt();}
         else {input = readNatural();}
         scanner.close();
+        if (input == 0) {input = readNatural();}
+        if (input < 0) {input *= -1;}
         return input;
     }
 
@@ -31,6 +33,8 @@ public class utils {
         Scanner scanner = new Scanner(System.in);
         if (scanner.hasNextInt()){input = scanner.nextInt();}
         else {input = readNatural(promptingMessage);}
+        if (input == 0) {input = readNatural(promptingMessage);}
+        if (input < 0) {input *= -1;}
         scanner.close();
         return input;
     }
