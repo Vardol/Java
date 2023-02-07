@@ -45,7 +45,7 @@ public class LoggedSimpleCalculator {
     }
 
     public static void main(String[] args) throws IOException{
-        Logger logger = Logger.getLogger(LoggedBubbleSort.class.getName());
+        Logger logger = Logger.getLogger(LoggedSimpleCalculator.class.getName());
         FileHandler fileHandler = new FileHandler("calclog.log");
         logger.addHandler(fileHandler);
         SimpleFormatter simpleFormatter = new SimpleFormatter();
