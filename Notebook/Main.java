@@ -10,7 +10,7 @@ public class Main {
         //30 - магическое число. Мне нравится 30.
         System.out.println("В наличии 30 ноутбуков:");
 
-        //Генерируем 30 слуайных ноутбуков
+        //Генерируем 30 случайных ноутбуков
         LinkedList<Notebook> notebooksList = new LinkedList<Notebook>();
         for (int i = 0; i < 30; i++) {
             notebooksList.add(new Notebook());
@@ -18,12 +18,10 @@ public class Main {
         }
 
 
-        System.out.println("");
+        System.out.println();
 
-        //Наполняем новй список ноутбуков результатом фильтрации с учетом считанного от пользователя фильтра.
-        //Для этого создаем объект нашего класса NotebookFilter, в котором реализован этот функционал
-        NotebookFilter notebookFilter = new NotebookFilter();
-        LinkedList<Notebook> filteredNotebooksList = notebookFilter.filterNotebooks(notebookFilter.readFilter(), notebooksList);
+        //методы теперь статические, поэтому вызываем их напрямую из класса
+        LinkedList<Notebook> filteredNotebooksList = NotebookFilter.filterNotebooks(NotebookFilter.readFilter(), notebooksList);
         //пишем сколько получилось подходящих ноутов и выводим их списком
         System.out.println("\nФильтрам соответствуют " + filteredNotebooksList.size() + " ноутбуков:"); 
         for (int i = 0; i < filteredNotebooksList.size(); i++) {

@@ -4,26 +4,26 @@ import java.util.Random;
 
 public class Notebook {
     //список значений для случайной генерации ноутбуков
-    public final static String[] NAME_LIST = {"Asus","Macbook","Acer","Lenovo","ICL"};
-    public final static int[] HDD_SIZE_LIST = {100,200,250,300,350,500,750,1000,1500,2000};
-    public final static int[] RAM_LIST = {1,2,4,8,16};
-    public final static String[] PROCESSOR_LIST = {"i3","i5","i7","i9","AMD"};
-    public final static String[] OS_LIST = {"none","Windows 7","Windows 8","Windows 10"};
-    public final static String[] COLOUR_LIST = {"grey","blue","red","black","white","purple with orange dots"};
-    public final static String[] GRAPHICSCARD_LIST = {"Radeon","Nvidia","none"};
+    protected final static String[] NAME_LIST = {"Asus","Macbook","Acer","Lenovo","ICL"};
+    protected final static int[] HDD_SIZE_LIST = {100,200,250,300,350,500,750,1000,1500,2000};
+    protected final static int[] RAM_LIST = {1,2,4,8,16};
+    protected final static String[] PROCESSOR_LIST = {"i3","i5","i7","i9","AMD"};
+    protected final static String[] OS_LIST = {"none","Windows 7","Windows 8","Windows 10"};
+    protected final static String[] COLOUR_LIST = {"grey","blue","red","black","white","purple with orange dots"};
+    protected final static String[] GRAPHICSCARD_LIST = {"Radeon","Nvidia","none"};
 
 
     //список полей
-    private String name;
-    private int hddSize;
-    private int ram;
-    private String processor;
-    private int diagonal;
-    private String OS;
-    private String colour;
-    private String graphicsCard;
-    private int price;
-    private boolean isOn; //на мой взгляд, способность включаться - неотъемлемое свойство ноутбука, инча он не вполне им является...
+    protected String name;
+    protected int hddSize;
+    protected int ram;
+    protected String processor;
+    protected int diagonal;
+    protected String OS;
+    protected String colour;
+    protected String graphicsCard;
+    protected int price;
+    protected boolean isOn; //на мой взгляд, способность включаться - неотъемлемое свойство ноутбука, иначе он не вполне им является...
 
 
 
@@ -32,7 +32,7 @@ public class Notebook {
         String result = "";
         return result.concat(this.name).concat(", HDD: ").concat(Integer.toString(this.hddSize)).concat("GB, RAM: ").concat(Integer.toString(this.ram)).
         concat("GB, CPU: ").concat(this.processor).concat(", screen diagonal: ").concat(Integer.toString(this.diagonal)).
-        concat("\", установленная OS: ").concat(OS).concat(", цвет: ").concat(", видеокарта: ").concat(graphicsCard).
+        concat("\", установленная OS: ").concat(this.OS).concat(", цвет: ").concat(this.colour).concat(", видеокарта: ").concat(graphicsCard).
         concat(". Стоимость: ").concat(Integer.toString(this.price)).concat(" руб.");
     }
 
@@ -67,43 +67,43 @@ public class Notebook {
 
     //геттеры
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getPrice() {
-        return price;
+        return this.price;
     }
 
     public String getGraphicsCard() {
-        return graphicsCard;
+        return this.graphicsCard;
     }
 
     public String getProcessor() {
-        return processor;
+        return this.processor;
     }
 
     public String getColour() {
-        return colour;
+        return this.colour;
     }
 
     public int getDiagonal() {
-        return diagonal;
+        return this.diagonal;
     }
 
     public int getHdd() {
-        return hddSize;
+        return this.hddSize;
     }
 
     public String getOS() {
-        return OS;
+        return this.OS;
     }
 
     public int getRam() {
-        return ram;
+        return this.ram;
     }
 
     public boolean isOn() {
-        return isOn;
+        return this.isOn;
     }
 
     //включение и выключение ноута

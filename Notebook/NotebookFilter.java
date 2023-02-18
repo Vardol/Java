@@ -5,18 +5,21 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Scanner;
 
-public class NotebookFilter {
 
+public class NotebookFilter{
+    
     //метод фильтрации - принимает на вход фильтр в формате Map и список ноутбуков.
     //делает полную копию переданного Листа Ноутбуков.
     //Проверяет Map на наличие типовых ключей для фильтрации.
     //если ключ найден - пробегает по скопированному спииску, удаляя несоответствующие критерию ноутбуки
     //если ключ не найден - он не будет обработан
-    public LinkedList<Notebook> filterNotebooks(Map<String, String> filter, LinkedList<Notebook> notebookList){
+    
+
+    public static LinkedList<Notebook> filterNotebooks(Map<String, String> filter, LinkedList<Notebook> notebookList){
         LinkedList<Notebook> result = new LinkedList<>();
         result.addAll(notebookList);
-
-//проверка ключа name
+        
+        //проверка ключа name
         if (filter.containsKey("name")){
             String name = filter.get("name");
             for (int i = 0; i < result.size(); i++) {
@@ -64,10 +67,10 @@ public class NotebookFilter {
             }
         }
 
-        if (filter.containsKey("OS")){
-            String OS = filter.get("OS");
+        if (filter.containsKey("os")){
+            String OS = filter.get("os");
             for (int i = 0; i < result.size(); i++) {
-                if (!OS.equalsIgnoreCase(result.get(i).getOS())){
+                if (!result.get(i).getOS().toLowerCase().contains((CharSequence)OS)){
                     result.remove(i);
                     i--;
                 }
@@ -159,7 +162,7 @@ public class NotebookFilter {
 
 
     //метод считывания фильтра в формате Map (для дальнейшей передачи в метод фильтрации)
-    public Map<String, String> readFilter(){
+    public static Map<String, String> readFilter(){
         Scanner scanner = new Scanner(System.in);
         String input = "";
         String[] currentFilter;
@@ -182,4 +185,6 @@ public class NotebookFilter {
         return filter;
         
     }
+
+
 }
