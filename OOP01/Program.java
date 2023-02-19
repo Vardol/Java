@@ -1,5 +1,7 @@
 package OOP01;
 
+import java.util.Iterator;
+
 public class Program {
     public static void main(String[] args) {
         HotDrinksVendingMachine coffeeVendingMachine = new HotDrinksVendingMachine();
@@ -9,15 +11,22 @@ public class Program {
         coffeeVendingMachine.addHotDrink(new HotDrink("Americano", 150, 200, 50));
         coffeeVendingMachine.addHotDrink(new HotDrink("Hot milk", 100, 200, 80));
         System.out.println("Содержимое кофейного аппарата: ");
-        System.out.println(coffeeVendingMachine.listDrinks());
+        //**использование итератора по 3 заданию**
+        Iterator<HotDrink> iter = coffeeVendingMachine.iterator();
+        while (iter.hasNext()){
+            System.out.println(iter.next());
+        }
         System.out.println("---------------");
         
+
+        //**старый код с задания к 1 семинару**
         HotDrinksVendingMachine teaVendingMachine = new HotDrinksVendingMachine();
         teaVendingMachine.addHotDrink(new HotDrink("Black Tea", 150, 300, 60));
         teaVendingMachine.addHotDrink(new HotDrink("Red Tea", 150, 300, 60));
         teaVendingMachine.addHotDrink(new HotDrink("Green Tea", 150, 300, 60));
         teaVendingMachine.addHotDrink(new HotDrink("Fruit Tea", 150, 300, 60));
         teaVendingMachine.addHotDrink(new HotDrink("Boiling water", 30, 250, 95));
+        
         System.out.println("Содержимое чайного аппарата: ");
         System.out.println(teaVendingMachine.listDrinks());
         System.out.println("---------------");
@@ -38,6 +47,7 @@ public class Program {
         System.out.println("---------------");
         System.out.println("Содержимое чайного аппарата: ");
         System.out.println(teaVendingMachine.listDrinks());
+
 
     }
 }
