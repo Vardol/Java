@@ -3,7 +3,8 @@ package OOP01;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class HotDrinksVendingMachine implements VendingMachine {
+//данный класс является реализацией параметризованного VendingMachine для <HotDrink>
+public class HotDrinksVendingMachine implements VendingMachine<HotDrink> { 
     
     //Изначально счел, что будет корректнее сделать отдельный класс, являющийся итератором, который будет возвращаться из метода iterator().
     //А не делать весь класс вендинговый аппарат - итератором
@@ -62,7 +63,7 @@ public class HotDrinksVendingMachine implements VendingMachine {
 
 
     public HotDrinksVendingMachine(LinkedList<HotDrink> hotDrinks) {
-        this.hotDrinks = new LinkedList<HotDrink>();
+        this.hotDrinks = new LinkedList<HotDrink>(hotDrinks);
     }
 
     public HotDrinksVendingMachine() {
@@ -79,6 +80,16 @@ public class HotDrinksVendingMachine implements VendingMachine {
         return result;
     }
 
+    @Override
+    public String toString(){
+        return this.listDrinks();
+    }
+
+    public LinkedList<HotDrink> getList()
+    {
+        return this.getHotDrinksList();
+    }
+
     public LinkedList<HotDrink> getHotDrinksList(){
         return this.hotDrinks;
     }
@@ -91,18 +102,26 @@ public class HotDrinksVendingMachine implements VendingMachine {
         this.hotDrinks.add(hotDrink);
     }
 
+    public void add(HotDrink hotDrink){
+        this.addHotDrink(hotDrink);
+    }
+
     public void removeHotDrink(HotDrink hotDrink){
         if (this.hotDrinks.contains(hotDrink)){
             this.hotDrinks.remove(hotDrink);
         }
     }
 
+    public void remove(HotDrink hotDrink){
+        this.removeHotDrink(hotDrink);
+    }
+
     public HotDrink removeHotDrinkAtIndex(int index){
         return this.hotDrinks.remove(index);
     }
 
-    public Item getProduct(String name, int volume, int temperature){
-        Item result = null;
+    public HotDrink getProduct(String name, int volume, int temperature){
+        HotDrink result = null;
         boolean gotcha = true;
         for (HotDrink hotDrink : hotDrinks) {
             gotcha = true;
@@ -125,11 +144,11 @@ public class HotDrinksVendingMachine implements VendingMachine {
         return result;
     }
     
-    public Item getProduct(String name){
+    public HotDrink getProduct(String name){
         return this.getProduct(name, -1, Integer.MIN_VALUE);
     }
 
-    public Item getProduct(int temperature){
+    public HotDrink getProduct(int temperature){
         return this.getProduct("", -1, temperature);
     }
 
