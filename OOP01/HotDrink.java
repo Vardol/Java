@@ -1,6 +1,6 @@
 package OOP01;
 
-public class HotDrink extends Item{
+public class HotDrink extends Drink{
     protected int tempretature;
 
     public HotDrink(String name, int price, int volume, int tempretature){
