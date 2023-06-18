@@ -30,14 +30,17 @@ import java.util.Scanner;
 
 public class PhoneBook {
 
+    //Вспомогательный метод проверки, является ли строка буквенной
     public static Boolean isAlphabetic(String input) {
         return input.matches("[a-zA-Zа-яА-Я]+");
     }
 
+    //Вспомогательный метод проверки, является ли строка численной
     public static Boolean isDigit(String input) {
         return input.matches("[0-9]+");
     }
 
+    //Метод-парсер - парсит введенную строку и выбрасывает исключения, если что-то не бьется
     public static String[] entryParser(String input) throws ParserException {
         if (input.contains("  ")) {
             throw new ParserInvalidDataFormatException("Введено более одного пробела подряд");
@@ -88,6 +91,7 @@ public class PhoneBook {
             e.printStackTrace();
         }
 
+        //Если мы сумели получить подходящую строку - записываем ее в файл
         if (entry != null) {
             try (FileWriter writer = new FileWriter(entry[0], true)) {
                 writer.write(String.join(" ", entry) + "\n");
