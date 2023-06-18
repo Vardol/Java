@@ -89,8 +89,6 @@ public class PhoneBook {
         }
 
         if (entry != null) {
-            System.out.println("работаем");
-            System.out.println(String.join(" ", entry));
             try (FileWriter writer = new FileWriter(entry[0], true)) {
                 writer.write(String.join(" ", entry) + "\n");
             } catch (Exception e) {
